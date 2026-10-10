@@ -1,0 +1,8 @@
+.env
+output/
+node_modules/
+
+# 개발용 API 탐색 스크립트 (개인 토큰이 필요해서 배포하지 않음)
+probe.js
+package.json
+.env.example

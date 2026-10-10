@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KU LMS+ 캘린더</title>
+  <link rel="icon" href="icons/32.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="calendar.css">
+</head>
+<body>
+  <header class="top">
+    <div class="month-nav">
+      <h1 id="month-title"></h1>
+      <button type="button" class="icon-btn" id="prev" aria-label="이전 달">‹</button>
+      <button type="button" class="icon-btn" id="next" aria-label="다음 달">›</button>
+      <button type="button" class="text-btn" id="today">오늘</button>
+    </div>
+    <div class="sync">
+      <span id="sync-status" aria-live="polite"></span>
+      <button type="button" class="text-btn" id="refresh">새로고침</button>
+    </div>
+  </header>
+
+  <div id="banner" class="banner" hidden></div>
+
+  <main class="layout">
+    <aside class="side">
+      <section class="upcoming">
+        <h2>다가오는 마감</h2>
+        <p class="hint">앞으로 14일, 아직 완료하지 않은 항목</p>
+        <ol id="upcoming-list"></ol>
+      </section>
+
+      <section class="filters">
+        <h2>과목</h2>
+        <ul id="course-filter" class="check-list"></ul>
+
+        <h2>표시할 항목</h2>
+        <ul id="stage-filter" class="check-list"></ul>
+
+        <label class="check">
+          <input type="checkbox" id="hide-done">
+          <span>완료한 항목 숨기기</span>
+        </label>
+      </section>
+    </aside>
+
+    <section class="calendar" aria-label="월간 캘린더">
+      <div class="weekdays" aria-hidden="true">
+        <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+      </div>
+      <div id="grid" class="grid"></div>
+    </section>
+  </main>
+
+  <dialog id="day-dialog">
+    <form method="dialog" class="dialog-head">
+      <h2 id="day-dialog-title"></h2>
+      <button class="icon-btn" aria-label="닫기">×</button>
+    </form>
+    <ul id="day-dialog-list" class="day-list"></ul>
+  </dialog>
+
+  <script type="module" src="js/calendar.js"></script>
+</body>
+</html>
